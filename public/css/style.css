@@ -1,70 +1,526 @@
-body {
-    color: #1c1c1c;
-    font-family: 'Inter', sans-serif;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+* {
+    margin: 0;
     padding: 0;
-    max-width: 1080px;
-    background-image: url("../img/site_fundo.svg");
-    background-size: cover;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f3ff;
+    color: #24152f;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    background: #16051f;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(44, 12, 66, 0.35);
 }
 
 nav {
-    overflow: hidden;
-    background-color: #333;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 75px;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #c89cff;
+    font-size: 13px;
+    margin-left: 5px;
+    letter-spacing: 3px;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style: none;
     display: flex;
+    gap: 8px;
 }
 
-nav ul a {
-    float: left;
-    color: #f2f2f2;
-    padding: 14px 16px;
-    text-align: center;
+nav li a {
+    color: #eee3ff;
     text-decoration: none;
-    font-size: 1em;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-size: 14px;
 }
 
-nav ul a:hover:not(.active) {
-    background-color: lightgray;
-    color: #1c1c1c;
+nav li a:hover,
+nav li a.active {
+    background: #7b35b7;
+    color: white;
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.banner-section {
+    padding: 25px;
+    background: linear-gradient(135deg, #2a0c3b, #6d28a3, #32104d);
+}
+
+.banner {
+    max-width: 1200px;
+    height: 430px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(38, 8, 55, 0.5);
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    filter: brightness(0.55);
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+}
+
+.banner-text p {
+    letter-spacing: 6px;
+    font-size: 15px;
+}
+
+.banner-text h1 {
+    font-size: 70px;
+    letter-spacing: 8px;
+    margin: 5px 0;
+}
+
+.banner-text span {
+    font-size: 20px;
+    color: #dcbcff;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.content-section,
+.news-section,
+.gallery-section,
+.members-section,
+.schedule-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 45px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(72, 30, 95, 0.1);
+}
+
+.content-section h1 {
+    color: #542078;
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.content-section strong {
+    color: #8a4bb5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content-section hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #7b35b7, transparent);
+    margin: 25px 0;
+}
+
+.content-section p {
+    margin: 15px 0;
+    color: #4d4055;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.members-section h2,
+.news-section h2,
+.gallery-section h2,
+.schedule-section h2 {
+    color: #542078;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-description {
+    color: #75677e;
+    margin: 8px 0 25px;
+}
+
+
+/* =========================
+   MEMBROS
+========================= */
+
+.members-section {
+    background: linear-gradient(135deg, #ffffff, #f5ebff);
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.member-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #ead8f7;
+    box-shadow: 0 6px 18px rgba(74, 31, 99, 0.08);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(74, 31, 99, 0.18);
+}
+
+.member-card h3 {
+    color: #68289a;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.member-card p {
+    color: #625568;
+    font-size: 14px;
+}
+
+.member-number {
+    color: #c69be4;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   NOTÍCIAS
+========================= */
+
+.news-section {
+    background: #24102f;
+    color: white;
+}
+
+.news-section h2 {
+    color: #dfc3f5;
+}
+
+.news-section .material-symbols-outlined {
+    color: #bd7ee6;
+}
+
+.author {
+    color: #bca9c6;
+    margin: 5px 0 25px;
+}
+
+.news-section blockquote {
+    background: #321543;
+    border-left: 4px solid #a85ed1;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    color: #eadff0;
+    transition: 0.3s;
+}
+
+.news-section blockquote:hover {
+    background: #3d1a50;
+    transform: translateX(5px);
+}
+
+.news-section blockquote strong {
+    color: #d7aaf0;
+}
+
+
+/* =========================
+   GALERIA
+========================= */
+
+.gallery-section {
+    background: linear-gradient(135deg, #ffffff, #f8f0ff);
+}
+
+.gallery-section table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.gallery-section td {
+    padding: 10px;
+    vertical-align: middle;
+    color: #55475d;
+}
+
+.gallery-section img {
+    width: 144px;
+    height: 256px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    box-shadow: 0 8px 20px rgba(56, 19, 76, 0.2);
+    transition: 0.3s;
+}
+
+.gallery-section img:hover {
+    transform: scale(1.04);
+}
+
+.gallery-section h3 {
+    color: #68289a;
+    margin-bottom: 8px;
+}
+
+.gallery-section p {
+    font-size: 14px;
+}
+
+
+/* =========================
+   AGENDA
+========================= */
+
+.schedule-section {
+    background: linear-gradient(135deg, #321044, #542078);
+    color: white;
+}
+
+.schedule-section h2 {
+    color: white;
+}
+
+.schedule-section .section-description {
+    color: #dfcfee;
+}
+
+.schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.event > span {
+    min-width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #b36cda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
 }
 
-nav ul li a.active {
-    background-color: #04AA6D;
+.event h3 {
+    color: #e5c6f5;
+}
+
+.event p {
+    color: #d3c5da;
+    font-size: 14px;
+}
+
+
+/* =========================
+   PARTE FINAL
+========================= */
+
+.final-section {
+    padding: 60px 25px;
+    background: linear-gradient(135deg, #eee0fa, #ffffff);
 }
 
 .photo-card {
-    background-color: greenyellow;
-    width: 920px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    color: aliceblue;
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
 .intro-photo {
-    background-size: cover;
-    max-width: 60%;
-    height: 680px;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 15px;
+    min-height: 250px;
+    padding: 40px;
+    border-radius: 22px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(60, 20, 80, 0.2);
 }
-#intro1{
-    background-image: url("../img/gp4.jpg");
+
+#intro1 {
+    background: linear-gradient(135deg, #51206f, #8d45b5);
 }
-#intro2{
-    background-image: url("../img/gp2.jpg");
+
+#intro2 {
+    background: linear-gradient(135deg, #281034, #6c2b91);
 }
-main{
-    background-color: rgba(0, 0, 0, 0.04);
+
+.intro-photo .material-symbols-outlined {
+    font-size: 35px;
+    color: #e2c2f5;
+    margin-bottom: 10px;
+}
+
+.intro-photo h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.intro-photo p {
+    color: #eee3f4;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    background: #16051f;
+    color: #bdaac7;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.footer-logo span {
+    color: #c89cff;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+footer p {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner {
+        height: 350px;
+    }
+
+    .banner-text h1 {
+        font-size: 45px;
+    }
+
+    .content-section,
+    .news-section,
+    .gallery-section,
+    .members-section,
+    .schedule-section {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-section table,
+    .gallery-section tbody,
+    .gallery-section tr,
+    .gallery-section td {
+        display: block;
+        width: 100%;
+    }
+
+    .gallery-section td {
+        margin-bottom: 15px;
+    }
+
+    .gallery-section img {
+        margin: auto;
+    }
+
+    .photo-card {
+        grid-template-columns: 1fr;
+    }
 }
